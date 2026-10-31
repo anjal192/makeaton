@@ -2,16 +2,11 @@ from datetime import date, datetime
 from decimal import Decimal
 
 from sqlalchemy import (
-    Date, DateTime, ForeignKey, Index, Integer, Numeric, String,
+    Date, DateTime, ForeignKey, Integer, Numeric, String,
     UniqueConstraint, func,
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-# TEMPORARY: registers users/plans/products/taxes until A's and B's real models exist
-try:
-    import app.modules.billing.stubs  # noqa: F401
-except ImportError:
-    pass
-from app.database import Base
+from app.core.db import Base
 
 
 class QuotationTemplate(Base):
